@@ -29,6 +29,11 @@ body {
     margin: 0 auto;
 }
 
+/* Ajuste específico para a tela de matérias */
+#subjects-screen .content {
+    padding-bottom: 0;
+}
+
 /* Login Screen */
 .logo {
     text-align: center;
@@ -211,6 +216,7 @@ body {
     gap: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
+    justify-content: center;
 }
 
 .tab {
@@ -222,6 +228,7 @@ body {
     cursor: pointer;
     border-bottom: 2px solid transparent;
     transition: all 0.3s;
+    text-align: center;
 }
 
 .tab.active {
@@ -250,6 +257,193 @@ body {
 }
 
 .search-bar input::placeholder {
+    color: #999;
+}
+
+/* Subjects Screen */
+.search-section {
+    margin-bottom: 20px;
+}
+
+.search-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.subjects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.subject-item {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subject-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #4ECDC4;
+}
+
+.subject-code {
+    font-weight: 600;
+    color: #4ECDC4;
+    font-size: 16px;
+}
+
+.subject-name {
+    color: #333;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.subject-info {
+    text-align: right;
+}
+
+.subject-type {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.subject-hours {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Professors Screen */
+.professors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.professor-item {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.professor-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #4ECDC4;
+}
+
+.professor-details {
+    flex: 1;
+}
+
+.professor-name {
+    font-weight: 600;
+    color: #4ECDC4;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.professor-title {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.professor-department {
+    color: #666;
+    font-size: 12px;
+}
+
+.professor-info {
+    text-align: right;
+}
+
+.professor-degree {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.professor-university {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Courses Screen */
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.course-item {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #4ECDC4;
+}
+
+.course-details {
+    flex: 1;
+}
+
+.course-name {
+    font-weight: 600;
+    color: #4ECDC4;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.course-description {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.course-department {
+    color: #666;
+    font-size: 12px;
+}
+
+.course-info {
+    text-align: right;
+}
+
+.course-type {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.course-duration {
+    font-size: 12px;
     color: #999;
 }
 
