@@ -206,34 +206,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Adicionar interatividade aos cards de material
 document.addEventListener('DOMContentLoaded', function() {
-    const downloadButtons = document.querySelectorAll('.download-btn');
-    
-    downloadButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            // Feedback visual
-            const original = this.innerHTML;
-            this.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M 5 13 L 10 18 L 19 7" fill="none" stroke="#63c5e5" stroke-width="3"/>
-                </svg>
-            `;
-            
-            setTimeout(() => {
-                this.innerHTML = original;
-            }, 1500);
-        });
-    });
-    
     // Like buttons
     const likeButtons = document.querySelectorAll('.likes');
-    
+
     likeButtons.forEach(btn => {
         btn.addEventListener('click', function() {
             const currentLikes = parseInt(this.textContent);
             const isLiked = this.classList.contains('liked');
-            
+
             if (isLiked) {
                 this.textContent = `${currentLikes - 1} 👍`;
                 this.classList.remove('liked');
@@ -242,25 +222,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.classList.add('liked');
             }
         });
-        
+
         btn.style.cursor = 'pointer';
-    });
-    
-    // Share buttons
-    const shareButtons = document.querySelectorAll('.share-btn');
-    
-    shareButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Feedback visual de compartilhamento
-            const original = this.textContent;
-            this.textContent = '✓';
-            this.style.color = '#63c5e5';
-            
-            setTimeout(() => {
-                this.textContent = original;
-                this.style.color = '';
-            }, 1500);
-        });
     });
 });
 
@@ -418,10 +381,10 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         const activeScreen = document.querySelector('.screen.active');
-        
+
         if (activeScreen) {
             const screenId = activeScreen.id;
-            
+
             switch(screenId) {
                 case 'home-screen':
                     showScreen('login-screen');
@@ -434,6 +397,9 @@ document.addEventListener('keydown', function(e) {
                     goToForm();
                     break;
                 case 'confirmation-screen':
+                    goToHome();
+                    break;
+                case 'profile-screen':
                     goToHome();
                     break;
             }
@@ -821,6 +787,97 @@ function selectCourse(course) {
     // Por enquanto, volta para a tela inicial
     goToHome();
 }
+
+// Navegação para tela de perfil
+function goToProfile() {
+    showScreen('profile-screen');
+}
+
+// Função para logout
+function logout() {
+    // Simulação de logout
+    alert('Logout realizado com sucesso!');
+    showScreen('login-screen');
+}
+
+// Função para mostrar aviso de download
+function showDownloadAlert() {
+    const alert = document.createElement('div');
+    alert.className = 'note-highlight';
+    alert.textContent = 'Download iniciado! 📁';
+    alert.style.background = '#e8f5e8';
+    alert.style.color = '#2e7d32';
+    document.body.appendChild(alert);
+
+    setTimeout(() => {
+        alert.remove();
+    }, 3000);
+}
+
+// Função para mostrar aviso de compartilhamento
+function showShareAlert() {
+    const alert = document.createElement('div');
+    alert.className = 'note-highlight';
+    alert.textContent = 'Link copiado para a área de transferência! 🔗';
+    alert.style.background = '#e8f4fd';
+    alert.style.color = '#63c5e5';
+    document.body.appendChild(alert);
+
+    setTimeout(() => {
+        alert.remove();
+    }, 3000);
+}
+
+// Adicionar event listeners aos botões de download e compartilhar
+document.addEventListener('DOMContentLoaded', function() {
+    // Botões de download
+    const downloadButtons = document.querySelectorAll('.download-btn');
+    downloadButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showDownloadAlert();
+
+            // Feedback visual
+            const original = this.innerHTML;
+            this.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M 5 13 L 10 18 L 19 7" fill="none" stroke="#63c5e5" stroke-width="3"/>
+                </svg>
+            `;
+
+            setTimeout(() => {
+                this.innerHTML = original;
+            }, 1500);
+        });
+    });
+
+    // Botões de compartilhar
+    const shareButtons = document.querySelectorAll('.share-btn');
+    shareButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showShareAlert();
+
+            // Feedback visual
+            const original = this.textContent;
+            this.textContent = '✓';
+            this.style.color = '#63c5e5';
+
+            setTimeout(() => {
+                this.textContent = original;
+                this.style.color = '';
+            }, 1500);
+        });
+    });
+
+    // Botões de perfil na navegação
+    const profileNavButtons = document.querySelectorAll('.nav-btn');
+    profileNavButtons.forEach(btn => {
+        if (btn.querySelector('span') && btn.querySelector('span').textContent === 'Perfil') {
+            btn.addEventListener('click', goToProfile);
+        }
+    });
+});
 
 // Mensagem inicial no console
 console.log('%c🎓 UFBArchive Protótipo', 'color: #63c5e5; font-size: 20px; font-weight: bold;');
