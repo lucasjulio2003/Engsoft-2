@@ -17,7 +17,7 @@ function goToHome() {
     // Validar campos de login
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    
+
     if (emailInput && passwordInput) {
         if (!emailInput.value.trim()) {
             alert('Por favor, preencha o email');
@@ -30,8 +30,23 @@ function goToHome() {
             return;
         }
     }
-    
+
     showScreen('home-screen');
+}
+
+// Navegação para tela de "Esqueci a senha"
+function goToForgotPassword() {
+    showScreen('forgot-password-screen');
+}
+
+// Navegação para tela de ajuda
+function goToHelp() {
+    showScreen('help-screen');
+}
+
+// Navegação de volta para o login
+function goToLogin() {
+    showScreen('login-screen');
 }
 
 // Navegação para tela de busca vazia

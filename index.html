@@ -12,14 +12,8 @@
         <div class="content">
                 <div class="logo">
                     <div class="logo-icon">
-                        <svg width="80" height="80" viewBox="0 0 80 80">
-                            <rect x="10" y="15" width="60" height="50" rx="8" fill="none" stroke="#4ECDC4" stroke-width="2"/>
-                            <path d="M 25 35 L 30 40 L 35 35 L 35 50 L 30 45 L 25 50 Z" fill="#4ECDC4"/>
-                            <circle cx="55" cy="45" r="8" fill="none" stroke="#4ECDC4" stroke-width="2"/>
-                            <line x1="60" y1="50" x2="65" y2="55" stroke="#4ECDC4" stroke-width="2"/>
-                        </svg>
+                        <img src="logo.png" alt="UFBArchive Logo" width="220" height="220">
                     </div>
-                    <h1>UFBArchive</h1>
                 </div>
 
                 <div class="form-section">
@@ -45,13 +39,50 @@
                         <input type="password" id="password" placeholder="Senha" required>
                     </div>
 
-                    <a href="#" class="forgot-link">Esqueci a senha</a>
+                    <a href="#" class="forgot-link" onclick="goToForgotPassword()">Esqueci a senha</a>
 
                     <button class="btn-primary" onclick="goToHome()">Login</button>
 
-                    <a href="#" class="help-link">Precisa de ajuda?</a>
+                    <a href="#" class="help-link" onclick="goToHelp()">Precisa de ajuda?</a>
                 </div>
             </div>
+    </div>
+
+    <!-- Tela 1.1: Esqueci a Senha -->
+    <div id="forgot-password-screen" class="screen">
+        <div class="content">
+            <div class="info-container">
+                <div class="logo-icon" style="margin-bottom: 30px;">
+                    <img src="logo2.png" alt="UFBArchive Logo" width="200" height="200">
+                </div>
+                <h2>Esqueci a senha</h2>
+                <p>O cadastro no UFBArchive é feito automaticamente através do seu login UFBA. Use o mesmo email e senha que você utiliza para acessar os sistemas da universidade.</p>
+                <p>Se você esqueceu sua senha UFBA, entre em contato com o suporte da universidade.</p>
+                <button class="btn-primary" onclick="goToLogin()">Voltar ao Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela 1.2: Ajuda -->
+    <div id="help-screen" class="screen">
+        <div class="content">
+            <div class="info-container">
+                <div class="logo-icon" style="margin-bottom: 20px;">
+                    <img src="logo.png" alt="UFBArchive Logo" width="120" height="120">
+                </div>
+                <h2>O que é o UFBArchive?</h2>
+                <p>O UFBArchive é uma plataforma colaborativa criada para estudantes da Universidade Federal da Bahia (UFBA) compartilharem e acessarem materiais acadêmicos como provas, trabalhos, listas de exercícios e anotações.</p>
+                <h3 style="color: #333; margin-top: 20px;">Nosso objetivo:</h3>
+                <ul style="text-align: left; color: #666; line-height: 1.6;">
+                    <li>Facilitar o acesso a materiais de estudo</li>
+                    <li>Promover a colaboração entre estudantes</li>
+                    <li>Auxiliar na preparação para avaliações</li>
+                    <li>Criar uma base de conhecimento compartilhada</li>
+                </ul>
+                <p style="margin-top: 20px; color: #666;">Todos os materiais são contribuídos voluntariamente pela comunidade estudantil.</p>
+                <button class="btn-primary" onclick="goToLogin()">Voltar ao Login</button>
+            </div>
+        </div>
     </div>
 
     <!-- Tela 2: Home -->
