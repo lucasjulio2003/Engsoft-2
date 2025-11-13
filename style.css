@@ -149,7 +149,7 @@ body {
 }
 
 .input-group input:focus {
-    border-color: #4ECDC4;
+    border-color: #63c5e5;
 }
 
 .input-group input::placeholder {
@@ -233,7 +233,7 @@ body {
 
 .tab.active {
     color: #333;
-    border-bottom-color: #4ECDC4;
+    border-bottom-color: #63c5e5;
     font-weight: 600;
 }
 
@@ -293,12 +293,12 @@ body {
 
 .subject-item:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-color: #4ECDC4;
+    border-color: #63c5e5;
 }
 
 .subject-code {
     font-weight: 600;
-    color: #4ECDC4;
+    color: #63c5e5;
     font-size: 16px;
 }
 
@@ -345,7 +345,7 @@ body {
 
 .professor-item:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-color: #4ECDC4;
+    border-color: #63c5e5;
 }
 
 .professor-details {
@@ -354,7 +354,7 @@ body {
 
 .professor-name {
     font-weight: 600;
-    color: #4ECDC4;
+    color: #63c5e5;
     font-size: 16px;
     margin-bottom: 4px;
 }
@@ -407,7 +407,7 @@ body {
 
 .course-item:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-color: #4ECDC4;
+    border-color: #63c5e5;
 }
 
 .course-details {
@@ -416,7 +416,7 @@ body {
 
 .course-name {
     font-weight: 600;
-    color: #4ECDC4;
+    color: #63c5e5;
     font-size: 16px;
     margin-bottom: 4px;
 }
@@ -522,23 +522,23 @@ body {
 }
 
 .tag-prova {
-    background: #ffebee;
-    color: #c62828;
+    background: #e8f4fd;
+    color: #63c5e5;
 }
 
 .tag-anotacoes {
-    background: #e3f2fd;
-    color: #1565c0;
+    background: #d1e9f7;
+    color: #4a9bb8;
 }
 
 .tag-trabalho {
-    background: #fff9c4;
-    color: #f57f17;
+    background: #bae0f2;
+    color: #3a91a3;
 }
 
 .tag-semester {
-    background: #f5f5f5;
-    color: #666;
+    background: #a3d5eb;
+    color: #2a8796;
 }
 
 .material-footer {
@@ -590,7 +590,7 @@ body {
 }
 
 .nav-btn.active span {
-    color: #4ECDC4;
+    color: #63c5e5;
 }
 
 /* Empty State */
@@ -650,7 +650,7 @@ body {
 }
 
 .form-input:focus {
-    border-color: #4ECDC4;
+    border-color: #63c5e5;
 }
 
 .form-input::placeholder {
@@ -683,7 +683,7 @@ select.form-input {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    accent-color: #4ECDC4;
+    accent-color: #63c5e5;
 }
 
 .checkbox span {
@@ -705,8 +705,8 @@ select.form-input {
 }
 
 .btn-upload:hover {
-    border-color: #4ECDC4;
-    color: #4ECDC4;
+    border-color: #63c5e5;
+    color: #63c5e5;
 }
 
 .form-actions {
@@ -781,7 +781,7 @@ select.form-input {
 }
 
 .upload-box:hover {
-    border-color: #4ECDC4;
+    border-color: #63c5e5;
     background: #f0fffe;
 }
 
@@ -804,7 +804,7 @@ select.form-input {
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: #4ECDC4;
+    background: #63c5e5;
     border-radius: 50%;
     margin-right: 8px;
 }

@@ -68,8 +68,14 @@ function goToLogin() {
 }
 
 // Navegação para tela de busca vazia
-function goToSearch() {
+function goToSearch(searchTerm = '') {
     showScreen('search-screen');
+
+    // Atualizar o campo de busca com o termo pesquisado
+    const searchInput = document.querySelector('#search-screen .search-bar input');
+    if (searchInput) {
+        searchInput.value = searchTerm || 'Pesquisa realizada';
+    }
 }
 
 // Navegação para formulário
@@ -186,12 +192,13 @@ function goToConfirmation() {
 // Simular busca quando digitar no campo
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('#home-screen .search-bar input');
-    
+
     if (searchInput) {
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                // Simula busca sem resultados
-                goToSearch();
+                // Simula busca sem resultados, passando o termo pesquisado
+                const searchTerm = searchInput.value.trim();
+                goToSearch(searchTerm);
             }
         });
     }
@@ -209,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const original = this.innerHTML;
             this.innerHTML = `
                 <svg width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M 5 13 L 10 18 L 19 7" fill="none" stroke="#4ECDC4" stroke-width="3"/>
+                    <path d="M 5 13 L 10 18 L 19 7" fill="none" stroke="#63c5e5" stroke-width="3"/>
                 </svg>
             `;
             
@@ -247,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Feedback visual de compartilhamento
             const original = this.textContent;
             this.textContent = '✓';
-            this.style.color = '#4ECDC4';
+            this.style.color = '#63c5e5';
             
             setTimeout(() => {
                 this.textContent = original;
@@ -300,14 +307,14 @@ document.addEventListener('DOMContentLoaded', function() {
     uploadBoxes.forEach(box => {
         box.addEventListener('click', function() {
             // Simular seleção de arquivo
-            this.style.borderColor = '#4ECDC4';
+            this.style.borderColor = '#63c5e5';
             this.style.background = '#f0fffe';
             
             // Adicionar ícone de check e classe uploaded
             this.classList.add('uploaded');
             this.innerHTML = `
                 <svg width="40" height="40" viewBox="0 0 40 40">
-                    <circle cx="20" cy="20" r="18" fill="#4ECDC4"/>
+                    <circle cx="20" cy="20" r="18" fill="#63c5e5"/>
                     <path d="M 12 20 L 17 25 L 28 14" fill="none" stroke="white" stroke-width="3"/>
                 </svg>
             `;
@@ -816,6 +823,6 @@ function selectCourse(course) {
 }
 
 // Mensagem inicial no console
-console.log('%c🎓 UFBArchive Protótipo', 'color: #4ECDC4; font-size: 20px; font-weight: bold;');
+console.log('%c🎓 UFBArchive Protótipo', 'color: #63c5e5; font-size: 20px; font-weight: bold;');
 console.log('%cProtótipo de alta fidelidade - Engenharia de Software 2', 'color: #666; font-size: 12px;');
 console.log('%cDica: Pressione ESC para voltar entre telas', 'color: #999; font-size: 10px;');
