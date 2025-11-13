@@ -43,7 +43,7 @@ O protótipo simula o seguinte fluxo de usuário:
 ## 🎨 Características do Design
 
 - **Cores principais**: 
-  - Verde água (#4ECDC4) - cor primária
+  - Verde água (#63c5e5) - cor primária
   - Tons de cinza para texto e UI
   - Tags coloridas por tipo de material
 
