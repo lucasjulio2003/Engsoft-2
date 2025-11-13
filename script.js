@@ -44,6 +44,24 @@ function goToHelp() {
     showScreen('help-screen');
 }
 
+// Navegação para tela de seleção de matérias
+function goToSubjects() {
+    showScreen('subjects-screen');
+    loadSubjects();
+}
+
+// Navegação para tela de seleção de professores
+function goToProfessors() {
+    showScreen('professors-screen');
+    loadProfessors();
+}
+
+// Navegação para tela de seleção de cursos
+function goToCourses() {
+    showScreen('courses-screen');
+    loadCourses();
+}
+
 // Navegação de volta para o login
 function goToLogin() {
     showScreen('login-screen');
@@ -434,6 +452,367 @@ function showScreen(screenId) {
             content.scrollTop = 0;
         }
     }
+}
+
+// Lista de matérias do departamento de Ciência da Computação
+const subjectsData = [
+    { code: "MATF34", name: "ACCS:PROGRAMAÇÃO COMPETITIVA-COMPUTAÇÃO PARA ALUNOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC88", name: "ADMINISTRAÇÃO DE REDES DE COMPUTADORES", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA90", name: "ALGORITMOS DISTRIBUIDOS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATC19", name: "ALGORÍTMOS E PROGRAMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT053", name: "ANALISE DE PROJETO DE ALGORITMOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC32", name: "ANÁLISE E PROJETO DE ALGORITMOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA52", name: "ANÁLISE E PROJETO DE ALGORITMOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT162", name: "ANALISE E PROJETO DE SISTEMAS DE INFORMACAO I", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT163", name: "ANALISE E PROJETO DE SISTEMAS DE INFORMACAO II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC89", name: "APLICAÇÕES PARA DISPOSITIVOS MÓVEIS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA48", name: "ARQUITETURA DE COMPUTADORES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT151", name: "ARQUITETURA DE COMPUTADORES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC29", name: "ARQUITETURA DE COMPUTADORES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC34", name: "ARQUITETURAS DE SISTEMAS DISTRIBUÍDOS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA60", name: "BANCO DE DADOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT165", name: "BANCO DE DADOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC35", name: "BANCO DE DADOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATD05", name: "BANCO DE DADOS E APLICAÇÕES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC18", name: "CÁLCULO NUMÉRICO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC90", name: "CIRCUITOS DIGITAIS E ARQUITETURA DE COMPUTADORES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA61", name: "COMPILADORES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT056", name: "COMPUTACAO GRAFICA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA65", name: "COMPUTAÇÃO GRÁFICA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC36", name: "COMPUTAÇÃO GRÁFICA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT159", name: "COMPUTADORES E SOCIEDADE", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT153", name: "CONSTRUCAO DE COMPILADORES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT220", name: "EMPREENDEDORES EM INFORMATICA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB65", name: "EMPREENDIMENTOS E INFORMÁTICA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT161", name: "ENGENHARIA DE PROGRAMACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA62", name: "ENGENHARIA DE SOFTWARE I", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC38", name: "ENGENHARIA DE SOFTWARE I", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC39", name: "ENGENHARIA DE SOFTWARE II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA63", name: "ENGENHARIA DE SOFTWARE II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATE11", name: "ENGENHARIA DE SOFTWARE II-A", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT152", name: "ESTRUTURAS DE ARQUIVOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATD04", name: "ESTRUTURAS DE DADOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA40", name: "ESTRUTURAS DE DADOS E ALGORITMOS I", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC37", name: "ESTRUTURAS DE DADOS E ALGORITMOS II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA54", name: "ESTRUTURAS DE DADOS E ALGORITMOS II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT052", name: "ESTUDO COMPARATIVO DE LINGUAGENS DE PROGRAMACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB03", name: "EVOLUÇÃO DE SOFTWARE", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATC92", name: "FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT054", name: "INTELIGENCIA ARTIFICIAL", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA64", name: "INTELIGÊNCIA ARTIFICIAL", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC40", name: "INTELIGÊNCIA ARTIFICIAL", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT146", name: "INTRODUCAO A LOGICA DE PROGRAMACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA37", name: "INTRODUÇÃO À LÓGICA DE PROGRAMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC73", name: "INTRODUÇÃO À LÓGICA MATEMÁTICA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC93", name: "INTRODUÇÃO A WEB SEMÂNTICA", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT150", name: "INTRODUCAO AOS SISTEMAS DE COMPUTACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC94", name: "INTRODUÇÃO AS LINGUAGENS FORMAIS E TEORIA DA COMPUTAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB17", name: "LAB. DE COMPUTAÇÃO GRÁFICA E PROCESSAMENTO DE IMAGENS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB09", name: "LABORATÓRIO DE BANCO DE DADOS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA73", name: "LABORATÓRIO DE CIRCUITOS DIGITAIS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB11", name: "LABORATÓRIO DE COMPILADORES", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB14", name: "LABORATÓRIO DE ENGENHARIA DE SOFTWARE", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB16", name: "LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA57", name: "LABORATÓRIO DE PROGRAMAÇÃO I", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATC30", name: "LABORATÓRIO DE PROGRAMAÇÃO I", type: "DISCIPLINA", hours: "30h" },
+    { code: "MATA80", name: "LABORATÓRIO DE PROGRAMAÇÃO II", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATC84", name: "LABORATÓRIO DE PROGRAMAÇÃO WEB", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB01", name: "LABORATÓRIO DE REDES DE COMPUTADORES", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA84", name: "LABORATÓRIO DE REDES E COMPUTADORES", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA81", name: "LABORATÓRIO DE SISTEMAS OPERACIONAIS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT149", name: "LINGUAGENS DE MONTAGEM", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT147", name: "LINGUAGENS DE PROGRAMACAO I", type: "DISCIPLINA", hours: "90h" },
+    { code: "MAT148", name: "LINGUAGENS DE PROGRAMACAO II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA50", name: "LINGUAGENS FORMAIS E AUTÔMATOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT157", name: "LINGUAGENS FORMAIS E TEORIA DA COMPILACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA76", name: "LINGUAGENS PARA APLICAÇÃO COMERCIAL", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA47", name: "LÓGICA PARA COMPUTAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB13", name: "MÉTODOS FORMAIS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA69", name: "MODELAGEM E SIMULAÇÃO DE SISTEMAS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC41", name: "MODELAGEM E SIMULAÇÃO DE SISTEMAS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT160", name: "MODELOS PROBABILISTICOS DE PESQUISA OPERACIONAL", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC96", name: "ORGANIZAÇÃO, GERENCIAMENTO E RECUPERAÇÃO DA INFORMAÇÃO", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA56", name: "PARADIGMAS DE LINGUAGENS DE PROGRAMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC42", name: "PARADIGMAS DE LINGUAGENS DE PROGRAMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATE12", name: "PARADIGMAS DE LINGUAGENS DE PROGRAMAÇÃO A", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT045", name: "PROCESSAMENTO DE DADOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATE13", name: "PROGRAMAÇÃO CONCORRENTE, DISTRIBUÍDA E PARALELA", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA49", name: "PROGRAMAÇÃO DE SOFTWARE BÁSICO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC44", name: "PROGRAMAÇÃO DE SOFTWARE BÁSICO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA77", name: "PROGRAMAÇÃO FUNCIONAL", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT155", name: "PROGRAMACAO MATEMATICA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC43", name: "PROGRAMAÇÃO ORIENTADA A OBJETOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA55", name: "PROGRAMAÇÃO ORIENTADA A OBJETOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA38", name: "PROJETO DE CIRCUITOS LÓGICOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB02", name: "QUALIDADE DE SOFTWARE", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT055", name: "REDES DE COMPUTADORES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC45", name: "REDES DE COMPUTADORES I", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA59", name: "REDES DE COMPUTADORES I", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA85", name: "REDES DE COMPUTADORES II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC46", name: "REDES DE COMPUTADORES II", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC47", name: "ROBÓTICA INTELIGENTE", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB24", name: "ROBÓTICA INTELIGENTE", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATC48", name: "SEGURANÇA DA INFORMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA87", name: "SEGURANÇA DA INFORMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC99", name: "SEGURANÇA E AUDITORIA DE SISTEMAS DE INFORMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA75", name: "SEMÂNTICA DE LINGUAGEM DE PROGRAMAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB23", name: "SEMINÁRIOS EM EMPREENDEDORISMO", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATC50", name: "SISTEMAS DE TEMPO REAL", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB19", name: "SISTEMAS MULTIMÍDIA", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA58", name: "SISTEMAS OPERACIONAIS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC49", name: "SISTEMAS OPERACIONAIS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT154", name: "SISTEMAS OPERACIONAIS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC82", name: "SISTEMAS WEB", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT164", name: "TELEPROCESSAMENTO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT158", name: "TEORIA DA COMPUTACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA51", name: "TEORIA DA COMPUTAÇÃO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA53", name: "TEORIA DOS GRAFOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MAT156", name: "TEORIA DOS GRAFOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATC51", name: "TEORIA DOS GRAFOS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA72", name: "TÓPICOS EM ARQUITETURA DE COMPUTADORES", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB10", name: "TÓPICOS EM BANCO DE DADOS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT167", name: "TOPICOS EM CIENCIA DA COMPUTACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB12", name: "TÓPICOS EM COMPILADORES", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA74", name: "TÓPICOS EM COMPUTAÇÃO E ALGORITMOS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB04", name: "TÓPICOS EM COMPUTAÇÃO GRÁFICA E PROCESSAMENTO DE IMAGENS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT061", name: "TOPICOS EM ENGENHARIA DE SOFTWARE", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB25", name: "TÓPICOS EM ENGENHARIA DE SOFTWARE", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB05", name: "TÓPICOS EM INTELIGÊNCIA ARTIFICIAL", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATA79", name: "TÓPICOS EM PROGRAMAÇÃO", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT060", name: "TOPICOS EM REDES", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA86", name: "TÓPICOS EM REDES DE COMPUTADORES", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT168", name: "TOPICOS EM SISTEMAS DE INFORMACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATD02", name: "TÓPICOS EM SISTEMAS DE INFORMAÇÃO", type: "DISCIPLINA", hours: "45h" },
+    { code: "MATB26", name: "TÓPICOS EM SISTEMAS MULTIMÍDIA", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT062", name: "TOPICOS EM SISTEMAS OPERACIONAIS", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATA83", name: "TÓPICOS EM SISTEMAS OPERACIONAIS", type: "DISCIPLINA", hours: "45h" },
+    { code: "MAT169", name: "TOPICOS SISTEMAS DE COMPUTACAO", type: "DISCIPLINA", hours: "60h" },
+    { code: "MATB15", name: "VALIDAÇÃO DE SOFTWARE", type: "DISCIPLINA", hours: "45h" }
+];
+
+// Função para carregar as matérias
+function loadSubjects() {
+    const subjectsList = document.getElementById('subjects-list');
+    subjectsList.innerHTML = '';
+
+    subjectsData.forEach(subject => {
+        const subjectElement = document.createElement('div');
+        subjectElement.className = 'subject-item';
+        subjectElement.onclick = () => selectSubject(subject);
+
+        subjectElement.innerHTML = `
+            <div class="subject-details">
+                <div class="subject-code">${subject.code}</div>
+                <div class="subject-name">${subject.name}</div>
+            </div>
+            <div class="subject-info">
+                <div class="subject-type">${subject.type}</div>
+                <div class="subject-hours">${subject.hours}</div>
+            </div>
+        `;
+
+        subjectsList.appendChild(subjectElement);
+    });
+
+    // Adicionar funcionalidade de busca
+    const searchInput = document.getElementById('subject-search');
+    searchInput.addEventListener('input', filterSubjects);
+}
+
+// Função para filtrar matérias
+function filterSubjects() {
+    const searchTerm = document.getElementById('subject-search').value.toLowerCase();
+    const subjectItems = document.querySelectorAll('.subject-item');
+
+    subjectItems.forEach(item => {
+        const code = item.querySelector('.subject-code').textContent.toLowerCase();
+        const name = item.querySelector('.subject-name').textContent.toLowerCase();
+
+        if (code.includes(searchTerm) || name.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// Função para selecionar uma matéria
+function selectSubject(subject) {
+    // Aqui você pode implementar a lógica para quando uma matéria for selecionada
+    // Por exemplo, voltar para o formulário e preencher o campo de matéria
+    alert(`Matéria selecionada: ${subject.code} - ${subject.name}`);
+
+    // Voltar para o formulário e preencher o campo
+    goToForm();
+    const materiaInput = document.getElementById('materia');
+    if (materiaInput) {
+        materiaInput.value = `${subject.code} - ${subject.name}`;
+    }
+}
+
+// Lista de professores do departamento de Ciência da Computação
+const professorsData = [
+    { name: "Alírio Santos de Sá", title: "Professor Associado", department: "DCI", degree: "Doutor", university: "UFBA" },
+    { name: "Antonio Lopes Apolinario Junior", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "UFRJ" },
+    { name: "Bruno Pereira dos Santos", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "UFMG" },
+    { name: "Cássio Vinicius Serafim Prazeres", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "ICMC/USP" },
+    { name: "Christina von Flach Garcia Chavez", title: "Professora Associada", department: "DCC", degree: "Doutora", university: "PUC-Rio" },
+    { name: "Cláudio Nogueira Sant'Anna", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "PUC-Rio" },
+    { name: "Daniela Barreiro Claro", title: "Professora Titular", department: "DCC", degree: "Doutora", university: "Université d'Angers" },
+    { name: "Danilo Barbosa Coimbra", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "ICMC/USP" },
+    { name: "Débora Abdalla Santos", title: "Professora Titular", department: "DCI", degree: "Doutora", university: "UFPE" },
+    { name: "Eduardo Santana de Almeida", title: "Professor Titular", department: "DCC", degree: "Doutor", university: "UFPE" },
+    { name: "Flávio Morais de Assis Silva", title: "Professor Titular", department: "DCI", degree: "Doutor", university: "Universidade Técnica de Berlim" },
+    { name: "Frederico Araújo Durão", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "Universidade de Aalborg" },
+    { name: "George Marconi de Araújo Lima", title: "Professor Titular", department: "DCC", degree: "Doutor", university: "Universidade de York" },
+    { name: "Gustavo Bittencourt Figueiredo", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "UNICAMP" },
+    { name: "Islame Felipe da Costa Fernandes", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "UFRN" },
+    { name: "Ivan do Carmo Machado", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "UFBA" },
+    { name: "Karl Apaza Agüero", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "UFPR" },
+    { name: "Laís do Nascimento Salvador", title: "Professora Associada", department: "DCI", degree: "Doutora", university: "Poli/USP" },
+    { name: "Leobino Nascimento Sampaio", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "Cin/UFPE" },
+    { name: "Luciano Rebouças de Oliveira", title: "Professor Associado", department: "DCC", degree: "PhD", university: "Universidade de Coimbra" },
+    { name: "Luma da Rocha Seixas", title: "Professora Adjunta", department: "DCI", degree: "Doutora", university: "UFPE" },
+    { name: "Manoel Gomes de Mendonça Neto", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "Universidade de Maryland" },
+    { name: "Marlo Vieira dos Santos e Souza", title: "Professor Adjunto", department: "DCI", degree: "Doutor", university: "UFRGS" },
+    { name: "Maycon Leone Maciel Peixoto", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "ICMC/USP" },
+    { name: "Paul Denis Etienne Regnier", title: "Professor Adjunto", department: "DCI", degree: "Doutor", university: "UFBA" },
+    { name: "Raimundo José de Araújo Macêdo", title: "Professor Titular", department: "DCI", degree: "Doutor", university: "Universidade de Newcastle" },
+    { name: "Rafael Augusto de Melo", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "CORE/Université Catholique de Louvain" },
+    { name: "Ricardo Araújo Rios", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "USP" },
+    { name: "Rita Suzana Pitangueira Maciel", title: "Professora Associada", department: "DCC", degree: "Doutora", university: "UFPE" },
+    { name: "Roberto Freitas Parente", title: "Professor Adjunto", department: "DCI", degree: "Doutor", university: "USP" },
+    { name: "Robespierre Dantas da Rocha Pita", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "UFBA" },
+    { name: "Rodrigo Rocha Gomes e Souza", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "UFBA" },
+    { name: "Rubisley de Paula Lemes", title: "Professor Adjunto", department: "DCC", degree: "Doutor", university: "UFPR" },
+    { name: "Sérgio Gorender", title: "Professor Titular", department: "DCI", degree: "Doutor", university: "UFPE" },
+    { name: "Steffen Lewitzka", title: "Professor Associado", department: "DCC", degree: "Doutor", university: "UFPE" },
+    { name: "Tatiane Nogueira Rios", title: "Professora Adjunta", department: "DCC", degree: "Doutora", university: "USP" },
+    { name: "Vaninha Vieira dos Santos", title: "Professora Associada", department: "DCC", degree: "Doutora", university: "UFPE" }
+];
+
+// Função para carregar os professores
+function loadProfessors() {
+    const professorsList = document.getElementById('professors-list');
+    professorsList.innerHTML = '';
+
+    professorsData.forEach(professor => {
+        const professorElement = document.createElement('div');
+        professorElement.className = 'professor-item';
+        professorElement.onclick = () => selectProfessor(professor);
+
+        professorElement.innerHTML = `
+            <div class="professor-details">
+                <div class="professor-name">${professor.name}</div>
+                <div class="professor-title">${professor.title}</div>
+                <div class="professor-department">${professor.department}</div>
+            </div>
+            <div class="professor-info">
+                <div class="professor-degree">${professor.degree}</div>
+                <div class="professor-university">${professor.university}</div>
+            </div>
+        `;
+
+        professorsList.appendChild(professorElement);
+    });
+
+    // Adicionar funcionalidade de busca
+    const searchInput = document.getElementById('professor-search');
+    searchInput.addEventListener('input', filterProfessors);
+}
+
+// Função para filtrar professores
+function filterProfessors() {
+    const searchTerm = document.getElementById('professor-search').value.toLowerCase();
+    const professorItems = document.querySelectorAll('.professor-item');
+
+    professorItems.forEach(item => {
+        const name = item.querySelector('.professor-name').textContent.toLowerCase();
+
+        if (name.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// Função para selecionar um professor
+function selectProfessor(professor) {
+    // Aqui você pode implementar a lógica para quando um professor for selecionado
+    // Por exemplo, voltar para o formulário e preencher o campo de professor
+    alert(`Professor selecionado: ${professor.name}`);
+
+    // Voltar para o formulário e preencher o campo
+    goToForm();
+    const professorInput = document.getElementById('professor');
+    if (professorInput) {
+        professorInput.value = professor.name;
+    }
+}
+
+// Lista de cursos do departamento de Ciência da Computação
+const coursesData = [
+    { name: "Ciência da Computação", description: "Curso de graduação em Ciência da Computação", type: "Bacharelado", duration: "8 semestres" },
+    { name: "Sistemas de Informação", description: "Curso de graduação em Sistemas de Informação", type: "Bacharelado", duration: "8 semestres" },
+    { name: "Licenciatura em Computação", description: "Curso de formação de professores em Computação", type: "Licenciatura", duration: "8 semestres" }
+];
+
+// Função para carregar os cursos
+function loadCourses() {
+    const coursesList = document.getElementById('courses-list');
+    coursesList.innerHTML = '';
+
+    coursesData.forEach(course => {
+        const courseElement = document.createElement('div');
+        courseElement.className = 'course-item';
+        courseElement.onclick = () => selectCourse(course);
+
+        courseElement.innerHTML = `
+            <div class="course-details">
+                <div class="course-name">${course.name}</div>
+                <div class="course-description">${course.description}</div>
+                <div class="course-department">DCC - Departamento de Ciência da Computação</div>
+            </div>
+            <div class="course-info">
+                <div class="course-type">${course.type}</div>
+                <div class="course-duration">${course.duration}</div>
+            </div>
+        `;
+
+        coursesList.appendChild(courseElement);
+    });
+
+    // Adicionar funcionalidade de busca
+    const searchInput = document.getElementById('course-search');
+    searchInput.addEventListener('input', filterCourses);
+}
+
+// Função para filtrar cursos
+function filterCourses() {
+    const searchTerm = document.getElementById('course-search').value.toLowerCase();
+    const courseItems = document.querySelectorAll('.course-item');
+
+    courseItems.forEach(item => {
+        const name = item.querySelector('.course-name').textContent.toLowerCase();
+        const description = item.querySelector('.course-description').textContent.toLowerCase();
+
+        if (name.includes(searchTerm) || description.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// Função para selecionar um curso
+function selectCourse(course) {
+    // Aqui você pode implementar a lógica para quando um curso for selecionado
+    // Por exemplo, mostrar materiais relacionados ao curso ou voltar para home
+    alert(`Curso selecionado: ${course.name}`);
+
+    // Por enquanto, volta para a tela inicial
+    goToHome();
 }
 
 // Mensagem inicial no console
