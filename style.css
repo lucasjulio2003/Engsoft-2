@@ -33,8 +33,72 @@ body {
 .logo {
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
+
+.info-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-container .logo-icon {
+    margin-bottom: 10px;
+}
+
+.info-container .info-icon {
+    margin: 30px 0;
+}
+
+.info-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.info-container p {
+    font-size: 17px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.info-container ul {
+    text-align: left;
+    margin: 25px 0;
+    padding-left: 25px;
+    max-width: 400px;
+}
+
+.info-container li {
+    margin-bottom: 12px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.info-container h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 25px 0 15px 0;
+    font-weight: 600;
+}
+
+.info-container .btn-primary {
+    margin-top: 30px;
+    min-width: 200px;
+}
+
+
 
 .logo-icon {
     margin-bottom: 10px;
@@ -99,7 +163,7 @@ body {
 .btn-primary {
     width: 100%;
     padding: 16px;
-    background: #4ECDC4;
+    background: #63c5e5;
     color: white;
     border: none;
     border-radius: 12px;
@@ -110,7 +174,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: #3db8b0;
+    background: #4a9bb8;
 }
 
 .btn-primary:active {
@@ -638,8 +702,57 @@ select.form-input {
         margin-top: 60px;
         margin-bottom: 80px;
     }
-    
+
     .logo h1 {
         font-size: 40px;
     }
+}
+
+/* Responsive para telas de informação */
+@media (max-width: 768px) {
+    .info-container {
+        padding: 15px;
+        min-height: 70vh;
+        margin: 10px;
+    }
+
+    .info-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .info-container p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+
+
+
+}
+
+@media (max-width: 480px) {
+    .info-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .info-container h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .info-container p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+
+
+    .info-container .info-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+
+
 }
