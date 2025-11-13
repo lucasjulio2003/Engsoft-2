@@ -19,23 +19,30 @@ O protótipo simula o seguinte fluxo de usuário:
    - Ações: download, like, compartilhar
    - Navegação inferior: Home, Contribua, Perfil
 
-3. **Tela de Busca Vazia**
+3. **Tela de Perfil**
+   - Foto de perfil com botão de edição
+   - Nome de usuário e email
+   - Estatísticas: Downloads, Curtidos, Contribuições
+   - Seções: Meus Downloads, Curtidos, Minhas Contribuições
+   - Botão de logout
+
+4. **Tela de Busca Vazia**
    - Exibida quando não há resultados
    - Incentivo para contribuir com materiais
    - Botão para acessar formulário de envio
 
-4. **Formulário de Envio**
+5. **Formulário de Envio**
    - Campos: Matéria, Professor, Semestre, Tipo de Prova
    - Checkboxes: Resolvido, Gabarito
    - Botão para anexar arquivos
    - Ações: Cancelar, Enviar
 
-5. **Seleção de Arquivos**
+6. **Seleção de Arquivos**
    - Upload de Prova
    - Upload de Gabarito
    - Ações: Cancelar, Anexar
 
-6. **Confirmação de Upload**
+7. **Confirmação de Upload**
    - Mensagem de sucesso
    - Contador de materiais enviados
    - Retorno automático para Home (3 segundos)

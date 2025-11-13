@@ -708,6 +708,164 @@
             </div>
     </div>
 
+    <!-- Tela 7: Perfil -->
+    <div id="profile-screen" class="screen">
+        <div class="content">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-placeholder">
+                        <svg width="60" height="60" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="4" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                            <path d="M 4 20 C 4 16 8 14 12 14 C 16 14 20 16 20 20" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <button class="edit-avatar-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path d="M 11 4 H 4 A 2 2 0 0 0 2 6 V 20 A 2 2 0 0 0 4 22 H 18 A 2 2 0 0 0 20 20 V 13" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                            <path d="M 18.5 2.5 A 2.121 2.121 0 0 1 20.5 4.5 L 12 13 L 8 14 L 9 10 Z" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profile-name">João Silva</h2>
+                    <p id="profile-email">joao.silva@ufba.br</p>
+                </div>
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="downloads-count">24</div>
+                    <div class="stat-label">Downloads</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="likes-count">18</div>
+                    <div class="stat-label">Curtidos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="uploads-count">7</div>
+                    <div class="stat-label">Contribuições</div>
+                </div>
+            </div>
+
+            <div class="profile-sections">
+                <div class="profile-section">
+                    <h3>Meus Downloads</h3>
+                    <div class="profile-list" id="downloads-list">
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Prova 1 - Teoria dos Grafos</h4>
+                                <p>MATA52 - Roberto Parente</p>
+                            </div>
+                            <span class="profile-item-date">15/11/2025</span>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Lista de Exercícios - Álgebra Linear</h4>
+                                <p>MATA60 - Tertuliano Franco</p>
+                            </div>
+                            <span class="profile-item-date">12/11/2025</span>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Trabalho Prático - Programação I</h4>
+                                <p>MATA37 - Fernando Alves</p>
+                            </div>
+                            <span class="profile-item-date">10/11/2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>Curtidos</h3>
+                    <div class="profile-list" id="likes-list">
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Resumo Completo - Física I</h4>
+                                <p>MATA02 - Gustavo Mendes</p>
+                            </div>
+                            <button class="unlike-btn">💔</button>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Prova 1 Resolvida - Sistemas Operacionais</h4>
+                                <p>MATA58 - Helena Rodrigues</p>
+                            </div>
+                            <button class="unlike-btn">💔</button>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Lista Vetores e Matrizes - Álgebra Linear</h4>
+                                <p>MATA60 - Tertuliano Franco</p>
+                            </div>
+                            <button class="unlike-btn">💔</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>Minhas Contribuições</h3>
+                    <div class="profile-list" id="uploads-list">
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Prova 2 - Estrutura de Dados</h4>
+                                <p>MATA40 - Carlos Eduardo</p>
+                            </div>
+                            <div class="profile-item-status">
+                                <span class="status-approved">Aprovado</span>
+                            </div>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Lista de Exercícios - Cálculo I</h4>
+                                <p>MATA01 - Ana Paula Silva</p>
+                            </div>
+                            <div class="profile-item-status">
+                                <span class="status-pending">Em análise</span>
+                            </div>
+                        </div>
+                        <div class="profile-item">
+                            <div class="profile-item-info">
+                                <h4>Trabalho Prático - Redes de Computadores</h4>
+                                <p>MATC45 - Maria Santos</p>
+                            </div>
+                            <div class="profile-item-status">
+                                <span class="status-approved">Aprovado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button class="btn-secondary" onclick="logout()">Sair da Conta</button>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <button class="nav-btn" onclick="goToHome()">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M 3 9 L 12 3 L 21 9 V 20 H 15 V 14 H 9 V 20 H 3 Z" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                </svg>
+                <span>Home</span>
+            </button>
+            <button class="nav-btn" onclick="goToForm()">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                    <line x1="12" y1="8" x2="12" y2="16" stroke="#63c5e5" stroke-width="2"/>
+                    <line x1="8" y1="12" x2="16" y2="12" stroke="#63c5e5" stroke-width="2"/>
+                </svg>
+                <span>Contribua</span>
+            </button>
+            <button class="nav-btn active">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                    <path d="M 4 20 C 4 16 8 14 12 14 C 16 14 20 16 20 20" fill="none" stroke="#63c5e5" stroke-width="2"/>
+                </svg>
+                <span>Perfil</span>
+            </button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
